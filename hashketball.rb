@@ -127,17 +127,12 @@ def game_hash
     }
   }
 end
+def all_players(game_hash)
+  game_hash[:home][:players] + game_hash[:away][:players]
+end
 
-def num_points_scored(game_hash)
-  game_hash.each do |location, team_data|
-    binding.pry
-    team_data.each do |attribute, data|
-      binding.pry
-      data.each do |data_item|
-        binding.pry
-      end
-    end
+def num_points_scored(all_players)
+  all_players[:player][:points]
   end
 end
 
-num_points_scored(game_hash)
